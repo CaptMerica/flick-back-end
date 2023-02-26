@@ -14,9 +14,27 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Song.init({
-    value: DataTypes.INTEGER,
-    profileId: DataTypes.INTEGER,
-    songId: DataTypes.INTEGER
+    value: {
+      type: DataTypes.STRING,
+    },
+    profileId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'Profiles',
+        key: 'id',
+      },
+    },
+    songId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'Profiles',
+        key: 'id',
+      },
+    },
   }, {
     sequelize,
     modelName: 'Song',
