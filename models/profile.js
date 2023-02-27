@@ -4,10 +4,10 @@ const song = require('./song')
 
 module.exports = (sequelize, DataTypes) => {
   class Profile extends Model {
-    
+
     static associate(models) {
       Profile.belongsTo(models.User, { foreignKey: 'userId' })
-      Profile.hasOne(models.Song, { foreignKey: 'songId' })
+      Profile.hasMany(models.Song, { foreignKey: 'profileId', as: 'songs' })
     }
   }
 

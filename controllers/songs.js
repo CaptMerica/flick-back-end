@@ -1,8 +1,8 @@
-const { Song } = require('../models')
+const { Song, Profile } = require('../models')
 
 async function create(req, res) {
   try {
-		req.body.songId = req.user.profile.id
+		req.body.profileId = req.user.profile.id
     const song = await Song.create(req.body)
     res.status(200).json(song)
   } catch (error) {

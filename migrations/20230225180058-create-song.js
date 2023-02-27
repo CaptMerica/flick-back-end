@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      value: {
+      name: {
         type: Sequelize.STRING
       },
       profileId: {
@@ -19,15 +19,6 @@ module.exports = {
         references: {
           model: 'Profiles',
           key: 'id',        
-        },
-      },
-      songId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Profiles',
-          key: 'id',
         },
       },
       createdAt: {
