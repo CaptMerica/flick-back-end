@@ -10,5 +10,7 @@ const { decodeUserFromToken, checkAuth } = middleware
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, songsCtrl.create)
+router.get('/', checkAuth, songsCtrl.index)
+router.put('/:id', checkAuth, songsCtrl.update)
 
 module.exports = router
