@@ -31,8 +31,19 @@ async function update (req, res) {
   }
 }
 
+async function deleteSong (req, res) {
+  try {
+    const song = await Song.findByPk(req.params.id)
+    await song.destroy()
+    res.status(200).json(song)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 module.exports = {
   create,
   index,
   update,
+  delete: deleteSong,
 }
